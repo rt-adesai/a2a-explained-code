@@ -8,7 +8,7 @@ these; nothing is recorded live. Move each capture to
 
 | | |
 |---|---|
-| Code | `a2a-explained-code` commit `65f00ff` (2026-09-24) |
+| Code | `a2a-explained-code` commit `f4ba276` (2026-09-24) |
 | `a2a-sdk` | 1.1.5 (protocol 1.0), JSON-RPC binding, Starlette + uvicorn 0.53.0 |
 | Python | 3.14.7 |
 | Model | OpenRouter `anthropic/claude-sonnet-5` for the runs that call the model |
