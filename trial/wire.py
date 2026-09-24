@@ -1,6 +1,8 @@
-"""Tap the wire: print every HTTP request the client sends and what comes back (video 08).
+"""Tap the wire: every request the client sends and what comes back (video 08).
 
     python wire.py "How did Apple do over the last month?"
+
+First the plain send and a GetTask (video 05's client), then the streaming send.
 """
 import asyncio, json, sys
 import httpx
@@ -31,14 +33,14 @@ async def log_response(response):
 async def main(text):
     http = httpx.AsyncClient(timeout=120, event_hooks={"request": [log_request],
                                                        "response": [log_response]})
-    client = await create_client(URL, ClientConfig(httpx_client=http))
-    request = SendMessageRequest(message=new_text_message(text, role=Role.ROLE_USER))
-    async for event in client.send_message(request):
-        print(f"<<< event: {MessageToJson(event, indent=2)}")
-        task_id = (event.task.id if event.HasField("task") else
-                   event.status_update.task_id if event.HasField("status_update") else
-                   event.artifact_update.task_id)
-    await client.get_task(GetTaskRequest(id=task_id))
+    for streaming in (False, True):
+        client = await create_client(URL, ClientConfig(httpx_client=http, streaming=streaming))
+        request = SendMessageRequest(message=new_text_message(text, role=Role.ROLE_USER))
+        async for event in client.send_message(request):
+            if streaming:
+                print(f"<<< event: {MessageToJson(event, indent=2)}")
+        if not streaming:
+            await client.get_task(GetTaskRequest(id=event.task.id))
 
 
 asyncio.run(main(sys.argv[1]))

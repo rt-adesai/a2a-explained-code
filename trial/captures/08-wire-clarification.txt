@@ -1,0 +1,257 @@
+
+>>> GET http://127.0.0.1:9999/.well-known/agent-card.json
+    a2a-version: 1.0
+    accept: */*
+<<< 200 application/json
+{
+  "name": "Stock Analyst",
+  "description": "Writes a short brief on one stock over one period, from its price history.",
+  "supportedInterfaces": [
+    {
+      "url": "http://127.0.0.1:9999",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "version": "0.1.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": true
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "stock-brief",
+      "name": "Stock brief",
+      "description": "Given a ticker and a period, fetch the price history and write a few sentences on what happened.",
+      "tags": [
+        "stocks"
+      ],
+      "examples": [
+        "How did Apple do over the last month?"
+      ]
+    }
+  ]
+}
+
+>>> POST http://127.0.0.1:9999
+    a2a-version: 1.0
+    content-type: application/json
+    accept: */*
+{
+  "method": "SendMessage",
+  "params": {
+    "message": {
+      "messageId": "7d7b03ec-3842-4a99-a72e-75864e0d5114",
+      "role": "ROLE_USER",
+      "parts": [
+        {
+          "text": "How did Apple do?"
+        }
+      ]
+    },
+    "configuration": {}
+  },
+  "id": "b75a0ab7-8f1f-45fb-b14b-e7eac1238c3f",
+  "jsonrpc": "2.0"
+}
+<<< 200 application/json
+{
+  "result": {
+    "task": {
+      "id": "67386d81-a2d5-4443-b7ee-ddb08b566000",
+      "contextId": "1dde668a-dd19-490e-a02f-d2aa961235d7",
+      "status": {
+        "state": "TASK_STATE_INPUT_REQUIRED",
+        "message": {
+          "messageId": "0f0ccad4-8fda-4e6a-8751-6b18f935b566",
+          "contextId": "1dde668a-dd19-490e-a02f-d2aa961235d7",
+          "taskId": "67386d81-a2d5-4443-b7ee-ddb08b566000",
+          "role": "ROLE_AGENT",
+          "parts": [
+            {
+              "text": "Which period should the brief cover? For example: the last month."
+            }
+          ]
+        },
+        "timestamp": "2026-09-24T22:58:20.181377Z"
+      },
+      "history": [
+        {
+          "messageId": "7d7b03ec-3842-4a99-a72e-75864e0d5114",
+          "contextId": "1dde668a-dd19-490e-a02f-d2aa961235d7",
+          "taskId": "67386d81-a2d5-4443-b7ee-ddb08b566000",
+          "role": "ROLE_USER",
+          "parts": [
+            {
+              "text": "How did Apple do?"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "id": "b75a0ab7-8f1f-45fb-b14b-e7eac1238c3f",
+  "jsonrpc": "2.0"
+}
+
+>>> POST http://127.0.0.1:9999
+    a2a-version: 1.0
+    content-type: application/json
+    accept: */*
+{
+  "method": "GetTask",
+  "params": {
+    "id": "67386d81-a2d5-4443-b7ee-ddb08b566000"
+  },
+  "id": "e09021ab-da29-4969-8dd4-e2d65e4ab75b",
+  "jsonrpc": "2.0"
+}
+<<< 200 application/json
+{
+  "result": {
+    "id": "67386d81-a2d5-4443-b7ee-ddb08b566000",
+    "contextId": "1dde668a-dd19-490e-a02f-d2aa961235d7",
+    "status": {
+      "state": "TASK_STATE_INPUT_REQUIRED",
+      "message": {
+        "messageId": "0f0ccad4-8fda-4e6a-8751-6b18f935b566",
+        "contextId": "1dde668a-dd19-490e-a02f-d2aa961235d7",
+        "taskId": "67386d81-a2d5-4443-b7ee-ddb08b566000",
+        "role": "ROLE_AGENT",
+        "parts": [
+          {
+            "text": "Which period should the brief cover? For example: the last month."
+          }
+        ]
+      },
+      "timestamp": "2026-09-24T22:58:20.181377Z"
+    },
+    "history": [
+      {
+        "messageId": "7d7b03ec-3842-4a99-a72e-75864e0d5114",
+        "contextId": "1dde668a-dd19-490e-a02f-d2aa961235d7",
+        "taskId": "67386d81-a2d5-4443-b7ee-ddb08b566000",
+        "role": "ROLE_USER",
+        "parts": [
+          {
+            "text": "How did Apple do?"
+          }
+        ]
+      }
+    ]
+  },
+  "id": "e09021ab-da29-4969-8dd4-e2d65e4ab75b",
+  "jsonrpc": "2.0"
+}
+
+>>> GET http://127.0.0.1:9999/.well-known/agent-card.json
+    a2a-version: 1.0
+    accept: */*
+<<< 200 application/json
+{
+  "name": "Stock Analyst",
+  "description": "Writes a short brief on one stock over one period, from its price history.",
+  "supportedInterfaces": [
+    {
+      "url": "http://127.0.0.1:9999",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "version": "0.1.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": true
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "stock-brief",
+      "name": "Stock brief",
+      "description": "Given a ticker and a period, fetch the price history and write a few sentences on what happened.",
+      "tags": [
+        "stocks"
+      ],
+      "examples": [
+        "How did Apple do over the last month?"
+      ]
+    }
+  ]
+}
+
+>>> POST http://127.0.0.1:9999
+    a2a-version: 1.0
+    content-type: application/json
+    accept: text/event-stream
+{
+  "method": "SendStreamingMessage",
+  "params": {
+    "message": {
+      "messageId": "f8409693-3d06-4dd5-a0fa-ee8cdaf1338e",
+      "role": "ROLE_USER",
+      "parts": [
+        {
+          "text": "How did Apple do?"
+        }
+      ]
+    },
+    "configuration": {}
+  },
+  "id": "b4d52523-985c-4cb1-9042-1c10e8384e81",
+  "jsonrpc": "2.0"
+}
+<<< 200 text/event-stream; charset=utf-8
+<<< event: {
+  "task": {
+    "id": "b9e81b74-ca28-4ba5-a82e-161af7e2ee8e",
+    "contextId": "3de62e05-13bc-4d53-8019-361a6d1bd6e4",
+    "status": {
+      "state": "TASK_STATE_SUBMITTED"
+    },
+    "history": [
+      {
+        "messageId": "f8409693-3d06-4dd5-a0fa-ee8cdaf1338e",
+        "contextId": "3de62e05-13bc-4d53-8019-361a6d1bd6e4",
+        "taskId": "b9e81b74-ca28-4ba5-a82e-161af7e2ee8e",
+        "role": "ROLE_USER",
+        "parts": [
+          {
+            "text": "How did Apple do?"
+          }
+        ]
+      }
+    ]
+  }
+}
+<<< event: {
+  "statusUpdate": {
+    "taskId": "b9e81b74-ca28-4ba5-a82e-161af7e2ee8e",
+    "contextId": "3de62e05-13bc-4d53-8019-361a6d1bd6e4",
+    "status": {
+      "state": "TASK_STATE_INPUT_REQUIRED",
+      "message": {
+        "messageId": "01b9b70a-cff8-4930-b983-3c2bcb367230",
+        "contextId": "3de62e05-13bc-4d53-8019-361a6d1bd6e4",
+        "taskId": "b9e81b74-ca28-4ba5-a82e-161af7e2ee8e",
+        "role": "ROLE_AGENT",
+        "parts": [
+          {
+            "text": "Which period should the brief cover? For example: the last month."
+          }
+        ]
+      },
+      "timestamp": "2026-09-24T22:58:20.184917Z"
+    }
+  }
+}
