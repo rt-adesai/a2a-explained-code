@@ -27,7 +27,7 @@ CARD = AgentCard(
                     "few sentences on what happened.",
         examples=["How did Apple do over the last month?"])],
 )
-PERIOD = re.compile(r"\b(\d+ ?(day|week|month|year)s?|last (week|month|quarter|year)"
+PERIOD = re.compile(r"\b(\d+ ?(day|week|month|year)s?|(last|past) (\w+ )?(week|month|quarter|year)s?"
                     r"|year to date|ytd)\b", re.I)
 
 
@@ -38,7 +38,9 @@ class Analyst(AgentExecutor):
             task = new_task_from_user_message(context.message)
             await queue.enqueue_event(task)
         updater = TaskUpdater(queue, task.id, task.context_id)
-        asked = "\n".join(get_message_text(m) for m in task.history if m.role == Role.ROLE_USER)
+        turns = {m.message_id: get_message_text(m) for m in task.history if m.role == Role.ROLE_USER}
+        turns[context.message.message_id] = context.get_user_input()   # this turn, every turn
+        asked = "\n".join(turns.values())
 
         if not PERIOD.search(asked):                      # checked before any model call
             await updater.requires_input(updater.new_agent_message([new_text_part(

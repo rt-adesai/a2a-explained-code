@@ -3,7 +3,8 @@
     python stream.py "How did Apple do over the last month?"
 """
 import asyncio, sys
-from a2a.client import create_client
+import httpx
+from a2a.client import ClientConfig, create_client
 from a2a.helpers import get_artifact_text, get_message_text, new_text_message
 from a2a.types import Role, SendMessageRequest, TaskState
 
@@ -15,7 +16,8 @@ def name(state):
 
 
 async def main(text):
-    client = await create_client(URL)
+    http = httpx.AsyncClient(timeout=120)              # events can be seconds apart
+    client = await create_client(URL, ClientConfig(httpx_client=http))
     request = SendMessageRequest(message=new_text_message(text, role=Role.ROLE_USER))
     async for event in client.send_message(request):
         if event.HasField("task"):

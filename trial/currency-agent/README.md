@@ -11,7 +11,9 @@ module named 'a2a.server.apps'`; it was written for the 0.3 API). `PORT.diff`
 is the whole port: the server app is built from `create_agent_card_routes` and
 `create_jsonrpc_routes`, the card lists a `supported_interfaces` entry instead
 of a `url`, and the executor uses the 1.x names for parts, states, helpers and
-errors. `app/agent.py` (the LangGraph agent itself) is untouched.
+errors. In `app/agent.py` (the LangGraph agent itself) one line changed: the
+Frankfurter rate API moved to `api.frankfurter.dev/v1` and the old host now
+answers with a redirect the sample's `httpx.get` does not follow.
 
 Run:
 

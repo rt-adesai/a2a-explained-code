@@ -1,13 +1,12 @@
 """Ask without a period, get asked back, answer on the same task (video 07).
 
-    python chat.py "How did Apple do?" "the last month"
+    python chat.py http://127.0.0.1:9999 "How did Apple do?" "the last month"
 """
 import asyncio, sys
+import httpx
 from a2a.client import ClientConfig, create_client
 from a2a.helpers import get_artifact_text, get_message_text, new_text_message
 from a2a.types import Role, SendMessageRequest, TaskState
-
-URL = "http://127.0.0.1:9999"
 
 
 def state(task):
@@ -27,12 +26,13 @@ async def send(client, text, task=None):
     return task
 
 
-async def main(question, reply):
-    client = await create_client(URL, ClientConfig(streaming=False))
+async def main(url, question, reply):
+    http = httpx.AsyncClient(timeout=120)              # the plain send waits for the brief
+    client = await create_client(url, ClientConfig(httpx_client=http, streaming=False))
     task = await send(client, question)
     if task.status.state == TaskState.TASK_STATE_INPUT_REQUIRED:
         print(f"> {reply}")
         await send(client, reply, task)
 
 
-asyncio.run(main(sys.argv[1], sys.argv[2]))
+asyncio.run(main(sys.argv[1], sys.argv[2], sys.argv[3]))

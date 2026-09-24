@@ -40,7 +40,8 @@ async def main(text):
     await asyncio.sleep(3)
 
     # Second connection: subscribe to the same task and catch up.
-    client = await create_client(URL)
+    http = httpx.AsyncClient(timeout=120)
+    client = await create_client(URL, ClientConfig(httpx_client=http))
     print("-- client back; subscribing to the task --")
     async for event in client.subscribe(SubscribeToTaskRequest(id=task_id)):
         show(event)

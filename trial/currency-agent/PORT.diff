@@ -139,3 +139,14 @@
      ) -> None:
 -        raise ServerError(error=UnsupportedOperationError())
 +        raise UnsupportedOperationError()
+--- upstream/app/agent.py	2026-09-24 15:42:44
++++ app/agent.py	2026-09-24 16:13:45
+@@ -37,7 +37,7 @@
+     """
+     try:
+         response = httpx.get(
+-            f'https://api.frankfurter.app/{currency_date}',
++            f'https://api.frankfurter.dev/v1/{currency_date}',
+             params={'from': currency_from, 'to': currency_to},
+         )
+         response.raise_for_status()
