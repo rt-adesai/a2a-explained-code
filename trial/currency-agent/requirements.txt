@@ -1,0 +1,14 @@
+# The A2A project's LangGraph currency sample, run locally as the third-party agent
+# for videos 04 and 10. Ported to the a2a-sdk 1.x server API (see PORT.diff).
+# Install (Python 3.12+):  pip install -r requirements.txt
+
+a2a-sdk[http-server]==1.1.5
+uvicorn==0.53.0
+langgraph==1.2.12
+langchain-core==1.6.5
+langchain-openai==1.6.6
+langchain-google-genai==4.4.0
+click==8.5.0
+httpx==0.28.1
+pydantic==2.13.5
+python-dotenv==1.2.3
