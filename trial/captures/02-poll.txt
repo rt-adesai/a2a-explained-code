@@ -1,0 +1,5 @@
+task 71783fc6-0dec-40ac-99e6-3a96559d4cef: submitted
+task 71783fc6-0dec-40ac-99e6-3a96559d4cef: working
+task 71783fc6-0dec-40ac-99e6-3a96559d4cef: completed
+  artifact brief:
+Apple rose 8.4% over the last month, from a close of $309.90 on August 25 to $337.02 on September 23. It climbed through early September, dipped briefly, then rallied to a period high of $339.75 on September 22. The latest close was just below that high.

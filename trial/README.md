@@ -12,7 +12,7 @@ into per-video folders once the series plan settles.
 | `ask.py` | Video 04's client: read a card, send one message, print the task's state and artifact |
 | `poll.py` | Video 06, first half: send, get the task back at once, poll `GetTask` until done |
 | `stream.py` | Video 06, second half: the streaming send, events printed as they arrive |
-| `chat.py` | Video 07: ask with no period, get asked back, answer on the same task |
+| `chat.py` | Video 07: ask with no period, get asked back, answer on the same task (takes the agent URL, so it works on the currency agent too) |
 | `reconnect.py` | Video 12, option A: hang up mid-task, come back, `SubscribeToTask` |
 | `webhook.py` | Video 12, option B: register a push-notification webhook, hang up, receive the brief there |
 | `wire.py` | Video 08: every request the client sends, and the frames that come back |

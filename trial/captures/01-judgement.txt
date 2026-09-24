@@ -1,0 +1,7 @@
+task 7ae02690-9f12-4225-813c-47097c78ba81: submitted
+status: working  
+status: working  fetching NVDA over 3mo: Assess Nvidia's three-month price performance
+status: working  fetching SPY over 3mo: Compare Nvidia with the broad market over the same three months
+artifact brief:
+Nvidia rose 14.9% over the last three months, though the path was choppy: it hit a period low on July 29 and a high on September 4. The broad-market SPY ETF gained 4.7% over the same period. Nvidia therefore outperformed the market by about 10 percentage points; its rise wasn’t just the market.
+status: completed  
