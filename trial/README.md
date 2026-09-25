@@ -13,9 +13,13 @@ into per-video folders once the series plan settles.
 | `poll.py` | Video 06, first half: send, get the task back at once, poll `GetTask` until done |
 | `stream.py` | Video 06, second half: the streaming send, events printed as they arrive |
 | `chat.py` | Video 07: ask with no period, get asked back, answer on the same task (takes the agent URL, so it works on the currency agent too) |
-| `reconnect.py` | Video 12, option A: hang up mid-task, come back, `SubscribeToTask` |
+| `reconnect.py` | Video 12: hang up mid-task, come back, `GetTask`, and `SubscribeToTask` only if the task is still active |
 | `webhook.py` | Video 12, option B: register a push-notification webhook, hang up, receive the brief there |
-| `wire.py` | Video 08: every request the client sends, and the frames that come back |
+| `wire.py` | A driver that makes the three calls video 08 reads: the plain send, `GetTask`, the streaming send (its own output is SDK-decoded, not the wire) |
+| `tap.py` | Video 08: the wiretap; takes port 9999, runs the analyst behind it, copies every byte both ways into `wire.log` |
+| `mcp_server.py` | Video 09: the analyst's lookup as an MCP server, line for line the pattern of MCP Explained's stock server |
+| `analyst_mcp.py` | Video 09: the analyst with its lookup behind MCP; `ANALYST=analyst_mcp python server.py` serves it, A2A side unchanged |
+| `briefing.py` | Video 10: a briefing agent with two cards on its list, one client per card, the cards' skills as the model's menu |
 | `currency-agent/` | The third-party agent for videos 04 and 10 (the A2A project's LangGraph currency sample) |
 
 Setup, as in `mcp-explained-code`:

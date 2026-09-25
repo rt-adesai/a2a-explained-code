@@ -1,9 +1,16 @@
 # CLAUDE.md
 
 Companion code for the **A2A Explained** video series (the sequel to MCP Explained).
-Nothing exists here yet (2026-09-24). The series repo next door owns the plan; this
-repo owns the code and the captures. This file is enough to start the first job; the
-series repo is where to go for the why.
+The series repo next door owns the plan; this repo owns the code and the captures.
+
+**State (2026-09-24):** `trial/` holds the implementation trial, done: the analyst
+(`analyst.py`, `server.py`), one client script per video moment, the wiretap
+(`tap.py`), the MCP bridge (`mcp_server.py`, `analyst_mcp.py`), the briefing agent
+(`briefing.py`), the currency sample ported to the pinned SDK (`currency-agent/`),
+and `captures/` with every run and its provenance. No video folders yet; `trial/`
+is reshaped into them when video 05 is authored. The sections below describe the
+job as it was set; `trial/README.md` and `trial/captures/README.md` say what
+exists, and `../a2a-explained/series-plan.md` carries what the trial settled.
 
 **Read next door when you need it:** `../a2a-explained/series-plan.md` (the arc, the
 examples, the verified protocol facts, the trial), `../a2a-explained/README.md` (how

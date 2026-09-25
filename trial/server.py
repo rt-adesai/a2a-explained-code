@@ -1,5 +1,6 @@
 """Serve the analyst over A2A: a card at the well-known address, a task per request."""
-import re
+import os, re, sys
+from importlib import import_module
 import httpx, uvicorn
 from dotenv import load_dotenv
 from starlette.applications import Starlette
@@ -11,7 +12,9 @@ from a2a.server.tasks import (BasePushNotificationSender, InMemoryPushNotificati
                               InMemoryTaskStore, TaskUpdater)
 from a2a.types import (AgentCapabilities, AgentCard, AgentInterface, AgentSkill, Role,
                        TaskState)
-from analyst import write_brief
+
+# The analyst is analyst.py, or the one named in ANALYST (analyst_mcp for video 09).
+write_brief = import_module(os.environ.get("ANALYST", "analyst")).write_brief
 
 CARD = AgentCard(
     name="Stock Analyst",
@@ -66,4 +69,5 @@ handler = DefaultRequestHandler(
     push_config_store=push_store,
     push_sender=BasePushNotificationSender(httpx.AsyncClient(), push_store))
 app = Starlette(routes=create_agent_card_routes(CARD) + create_jsonrpc_routes(handler, "/"))
-uvicorn.run(app, host="127.0.0.1", port=9999)
+# The card says 9999. A different port here is for tap.py, which then takes 9999.
+uvicorn.run(app, host="127.0.0.1", port=int(sys.argv[1]) if len(sys.argv) > 1 else 9999)

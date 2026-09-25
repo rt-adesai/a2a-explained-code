@@ -1,0 +1,441 @@
+--> to agent
+GET /.well-known/agent-card.json HTTP/1.1
+Host: 127.0.0.1:9999
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+User-Agent: python-httpx/0.28.1
+A2A-Version: 1.0
+
+
+<-- from agent
+HTTP/1.1 200 OK
+date: Fri, 25 Sep 2026 00:30:37 GMT
+server: uvicorn
+content-length: 608
+content-type: application/json
+
+{
+  "name": "Stock Analyst",
+  "description": "Writes a short brief on one stock over one period, from its price history.",
+  "supportedInterfaces": [
+    {
+      "url": "http://127.0.0.1:9999",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "version": "0.1.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": true
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "stock-brief",
+      "name": "Stock brief",
+      "description": "Given a ticker and a period, fetch the price history and write a few sentences on what happened.",
+      "tags": [
+        "stocks"
+      ],
+      "examples": [
+        "How did Apple do over the last month?"
+      ]
+    }
+  ]
+}
+
+--> to agent
+POST / HTTP/1.1
+Host: 127.0.0.1:9999
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+User-Agent: python-httpx/0.28.1
+A2A-Version: 1.0
+Content-Length: 255
+Content-Type: application/json
+
+
+--> to agent
+{
+  "method": "SendMessage",
+  "params": {
+    "message": {
+      "messageId": "d3d1be4b-0ef1-4c91-b328-025783b7ea41",
+      "role": "ROLE_USER",
+      "parts": [
+        {
+          "text": "How did Apple do over the last month?"
+        }
+      ]
+    },
+    "configuration": {}
+  },
+  "id": "efc2f6b1-0b21-43f0-8103-661301085061",
+  "jsonrpc": "2.0"
+}
+
+<-- from agent
+HTTP/1.1 200 OK
+date: Fri, 25 Sep 2026 00:30:37 GMT
+server: uvicorn
+content-length: 1154
+content-type: application/json
+
+{
+  "result": {
+    "task": {
+      "id": "b4140443-0f18-40a9-a40a-53a07b51af02",
+      "contextId": "d9373a61-3822-44d0-8c12-51b5eea57941",
+      "status": {
+        "state": "TASK_STATE_COMPLETED",
+        "timestamp": "2026-09-25T00:30:46.021571Z"
+      },
+      "artifacts": [
+        {
+          "artifactId": "21bdb819-7006-4262-845f-ec5807a5ab46",
+          "name": "brief",
+          "parts": [
+            {
+              "text": "Apple rose 8.8% over the month, from $309.90 on August 25 to $337.02 on September 23. It climbed through early September, briefly pulled back, then rallied above $330. Apple\u2019s highest closing price in the period was $339.75 on September 22; it finished slightly below that peak."
+            }
+          ]
+        }
+      ],
+      "history": [
+        {
+          "messageId": "d3d1be4b-0ef1-4c91-b328-025783b7ea41",
+          "contextId": "d9373a61-3822-44d0-8c12-51b5eea57941",
+          "taskId": "b4140443-0f18-40a9-a40a-53a07b51af02",
+          "role": "ROLE_USER",
+          "parts": [
+            {
+              "text": "How did Apple do over the last month?"
+            }
+          ]
+        },
+        {
+          "messageId": "24c2b400-cbaf-4fdb-841a-419d298cb8f7",
+          "contextId": "d9373a61-3822-44d0-8c12-51b5eea57941",
+          "taskId": "b4140443-0f18-40a9-a40a-53a07b51af02",
+          "role": "ROLE_AGENT",
+          "parts": [
+            {
+              "text": "fetching AAPL over 1mo: Describe Apple\u2019s price move over the last month"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "id": "efc2f6b1-0b21-43f0-8103-661301085061",
+  "jsonrpc": "2.0"
+}
+
+--> to agent
+POST / HTTP/1.1
+Host: 127.0.0.1:9999
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+User-Agent: python-httpx/0.28.1
+A2A-Version: 1.0
+Content-Length: 135
+Content-Type: application/json
+
+
+--> to agent
+{
+  "method": "GetTask",
+  "params": {
+    "id": "b4140443-0f18-40a9-a40a-53a07b51af02"
+  },
+  "id": "4237d23d-672f-43c7-9650-680f709b962e",
+  "jsonrpc": "2.0"
+}
+
+<-- from agent
+HTTP/1.1 200 OK
+date: Fri, 25 Sep 2026 00:30:45 GMT
+server: uvicorn
+content-length: 1145
+content-type: application/json
+
+{
+  "result": {
+    "id": "b4140443-0f18-40a9-a40a-53a07b51af02",
+    "contextId": "d9373a61-3822-44d0-8c12-51b5eea57941",
+    "status": {
+      "state": "TASK_STATE_COMPLETED",
+      "timestamp": "2026-09-25T00:30:46.021571Z"
+    },
+    "artifacts": [
+      {
+        "artifactId": "21bdb819-7006-4262-845f-ec5807a5ab46",
+        "name": "brief",
+        "parts": [
+          {
+            "text": "Apple rose 8.8% over the month, from $309.90 on August 25 to $337.02 on September 23. It climbed through early September, briefly pulled back, then rallied above $330. Apple\u2019s highest closing price in the period was $339.75 on September 22; it finished slightly below that peak."
+          }
+        ]
+      }
+    ],
+    "history": [
+      {
+        "messageId": "d3d1be4b-0ef1-4c91-b328-025783b7ea41",
+        "contextId": "d9373a61-3822-44d0-8c12-51b5eea57941",
+        "taskId": "b4140443-0f18-40a9-a40a-53a07b51af02",
+        "role": "ROLE_USER",
+        "parts": [
+          {
+            "text": "How did Apple do over the last month?"
+          }
+        ]
+      },
+      {
+        "messageId": "24c2b400-cbaf-4fdb-841a-419d298cb8f7",
+        "contextId": "d9373a61-3822-44d0-8c12-51b5eea57941",
+        "taskId": "b4140443-0f18-40a9-a40a-53a07b51af02",
+        "role": "ROLE_AGENT",
+        "parts": [
+          {
+            "text": "fetching AAPL over 1mo: Describe Apple\u2019s price move over the last month"
+          }
+        ]
+      }
+    ]
+  },
+  "id": "4237d23d-672f-43c7-9650-680f709b962e",
+  "jsonrpc": "2.0"
+}
+
+--> to agent
+GET /.well-known/agent-card.json HTTP/1.1
+Host: 127.0.0.1:9999
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+User-Agent: python-httpx/0.28.1
+A2A-Version: 1.0
+
+
+<-- from agent
+HTTP/1.1 200 OK
+date: Fri, 25 Sep 2026 00:30:45 GMT
+server: uvicorn
+content-length: 608
+content-type: application/json
+
+{
+  "name": "Stock Analyst",
+  "description": "Writes a short brief on one stock over one period, from its price history.",
+  "supportedInterfaces": [
+    {
+      "url": "http://127.0.0.1:9999",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "version": "0.1.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": true
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "stock-brief",
+      "name": "Stock brief",
+      "description": "Given a ticker and a period, fetch the price history and write a few sentences on what happened.",
+      "tags": [
+        "stocks"
+      ],
+      "examples": [
+        "How did Apple do over the last month?"
+      ]
+    }
+  ]
+}
+
+--> to agent
+POST / HTTP/1.1
+Host: 127.0.0.1:9999
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+User-Agent: python-httpx/0.28.1
+A2A-Version: 1.0
+Accept: text/event-stream
+Cache-Control: no-store
+Content-Length: 264
+Content-Type: application/json
+
+
+--> to agent
+{
+  "method": "SendStreamingMessage",
+  "params": {
+    "message": {
+      "messageId": "1d2ea86f-0a6a-405d-81a1-649f726c2f81",
+      "role": "ROLE_USER",
+      "parts": [
+        {
+          "text": "How did Apple do over the last month?"
+        }
+      ]
+    },
+    "configuration": {}
+  },
+  "id": "a377702c-d07d-407f-bbc7-3167fd393671",
+  "jsonrpc": "2.0"
+}
+
+<-- from agent
+HTTP/1.1 200 OK
+date: Fri, 25 Sep 2026 00:30:45 GMT
+server: uvicorn
+cache-control: no-store
+connection: keep-alive
+x-accel-buffering: no
+content-type: text/event-stream; charset=utf-8
+Transfer-Encoding: chunked
+
+
+<-- from agent
+1ee
+data: {
+  "result": {
+    "task": {
+      "id": "e843fb7b-2d0a-4a9f-ac49-e172188f7a32",
+      "contextId": "e382dfe9-4ceb-46cf-8e6a-40b1f547ea83",
+      "status": {
+        "state": "TASK_STATE_SUBMITTED"
+      },
+      "history": [
+        {
+          "messageId": "1d2ea86f-0a6a-405d-81a1-649f726c2f81",
+          "contextId": "e382dfe9-4ceb-46cf-8e6a-40b1f547ea83",
+          "taskId": "e843fb7b-2d0a-4a9f-ac49-e172188f7a32",
+          "role": "ROLE_USER",
+          "parts": [
+            {
+              "text": "How did Apple do over the last month?"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "id": "a377702c-d07d-407f-bbc7-3167fd393671",
+  "jsonrpc": "2.0"
+}
+
+
+
+<-- from agent
+126
+data: {
+  "result": {
+    "statusUpdate": {
+      "taskId": "e843fb7b-2d0a-4a9f-ac49-e172188f7a32",
+      "contextId": "e382dfe9-4ceb-46cf-8e6a-40b1f547ea83",
+      "status": {
+        "state": "TASK_STATE_WORKING",
+        "timestamp": "2026-09-25T00:30:46.036197Z"
+      }
+    }
+  },
+  "id": "a377702c-d07d-407f-bbc7-3167fd393671",
+  "jsonrpc": "2.0"
+}
+
+
+
+<-- from agent
+24f
+data: {
+  "result": {
+    "statusUpdate": {
+      "taskId": "e843fb7b-2d0a-4a9f-ac49-e172188f7a32",
+      "contextId": "e382dfe9-4ceb-46cf-8e6a-40b1f547ea83",
+      "status": {
+        "state": "TASK_STATE_WORKING",
+        "message": {
+          "messageId": "b71ccce9-f146-4702-98d4-ff0cf3af12e2",
+          "contextId": "e382dfe9-4ceb-46cf-8e6a-40b1f547ea83",
+          "taskId": "e843fb7b-2d0a-4a9f-ac49-e172188f7a32",
+          "role": "ROLE_AGENT",
+          "parts": [
+            {
+              "text": "fetching AAPL over 1mo: Summarize Apple\u2019s price performance over the last month"
+            }
+          ]
+        },
+        "timestamp": "2026-09-25T00:30:49.054392Z"
+      }
+    }
+  },
+  "id": "a377702c-d07d-407f-bbc7-3167fd393671",
+  "jsonrpc": "2.0"
+}
+
+
+
+<-- from agent
+244
+data: {
+  "result": {
+    "artifactUpdate": {
+      "taskId": "e843fb7b-2d0a-4a9f-ac49-e172188f7a32",
+      "contextId": "e382dfe9-4ceb-46cf-8e6a-40b1f547ea83",
+      "artifact": {
+        "artifactId": "a149a656-1754-4a13-8c91-1570343beca8",
+        "name": "brief",
+        "parts": [
+          {
+            "text": "Apple rose 8.8% over the month, from a $309.90 close on Aug. 25 to $337.02 on Sept. 23. The climb was uneven: shares dipped to $315.34 on Sept. 9, then advanced sharply. They reached a monthly closing high of $339.75 on Sept. 22 and eased slightly the next day."
+          }
+        ]
+      }
+    }
+  },
+  "id": "a377702c-d07d-407f-bbc7-3167fd393671",
+  "jsonrpc": "2.0"
+}
+
+
+
+<-- from agent
+128
+data: {
+  "result": {
+    "statusUpdate": {
+      "taskId": "e843fb7b-2d0a-4a9f-ac49-e172188f7a32",
+      "contextId": "e382dfe9-4ceb-46cf-8e6a-40b1f547ea83",
+      "status": {
+        "state": "TASK_STATE_COMPLETED",
+        "timestamp": "2026-09-25T00:30:54.646001Z"
+      }
+    }
+  },
+  "id": "a377702c-d07d-407f-bbc7-3167fd393671",
+  "jsonrpc": "2.0"
+}
+
+
+
+<-- from agent
+0
+
+
