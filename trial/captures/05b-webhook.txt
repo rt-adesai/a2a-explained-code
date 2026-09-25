@@ -1,5 +1,5 @@
 webhook got (token s3cret): task
-task 3ef33d09-2ef6-432e-a5b8-e865b1ce26f3: TASK_STATE_SUBMITTED
+task 27cddeab-530d-4959-ad5a-6ef82a7e9d75: TASK_STATE_SUBMITTED
 -- client hung up; waiting at the webhook --
 webhook got (token s3cret): statusUpdate
   state TASK_STATE_WORKING
@@ -7,6 +7,6 @@ webhook got (token s3cret): statusUpdate
   state TASK_STATE_WORKING
 webhook got (token s3cret): artifactUpdate
   artifact brief:
-Apple gained 8.4% over the past month, from its Aug. 25 close through its latest close on Sept. 23. The stock dipped in early September, then climbed sharply and reached a period high of $339.75 on Sept. 22. It closed at $337.02 the next day, a little below that high.
+Apple rose 8.8% over the month, closing at $337.02 on September 23, up from $309.90 on August 25. The stock dipped to $315.34 on September 9 before climbing above $330 later in the month. It reached a monthly closing high of $339.75 on September 22, then eased slightly.
 webhook got (token s3cret): statusUpdate
   state TASK_STATE_COMPLETED

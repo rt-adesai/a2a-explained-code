@@ -1,4 +1,4 @@
 agent: Stock Analyst -- Writes a short brief on one stock over one period, from its price history.
   skill stock-brief: Given a ticker and a period, fetch the price history and write a few sentences on what happened.
-task 32062ea6-d16f-4de2-a5c6-9fb1dabbaab1: input_required
+task ae1e5007-c89c-429f-906a-a1a7bc3f45a2: input_required
   agent says: Which period should the brief cover? For example: the last month.

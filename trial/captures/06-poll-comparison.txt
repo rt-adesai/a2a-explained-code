@@ -1,5 +1,5 @@
-task faebe588-ceb4-48fc-99cd-8b636c9a8c87: submitted
-task faebe588-ceb4-48fc-99cd-8b636c9a8c87: working
-task faebe588-ceb4-48fc-99cd-8b636c9a8c87: completed
+task f5b7d6aa-cec0-44a9-9839-0f66cf488a6d: submitted
+task f5b7d6aa-cec0-44a9-9839-0f66cf488a6d: working
+task f5b7d6aa-cec0-44a9-9839-0f66cf488a6d: completed
   artifact brief:
-Apple rose 8.4% over the past month, from $309.90 on Aug. 25 to $337.02 on Sep. 23. It climbed to a high of $339.75 on Sep. 22, then edged lower. The S&P 500 ETF (SPY) gained 0.4% over the same period, so Apple’s rise substantially outpaced the broader market.
+Apple rose 8.8% over the month, from $309.90 on Aug. 25 to $337.02 on Sept. 23. It dipped to $315.34 on Sept. 9, then climbed, reaching a monthly closing high of $339.75 on Sept. 22 before easing slightly. The S&P 500 ETF SPY gained 0.5% over the same period, so Apple’s rise substantially outpaced the market.

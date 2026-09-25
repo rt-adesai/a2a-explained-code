@@ -47,7 +47,7 @@
   "method": "SendMessage",
   "params": {
     "message": {
-      "messageId": "0b1be4e2-1db6-4370-9375-3bce23db0c80",
+      "messageId": "21eeddd5-3210-4bbf-a976-74f658a61356",
       "role": "ROLE_USER",
       "parts": [
         {
@@ -57,21 +57,21 @@
     },
     "configuration": {}
   },
-  "id": "fecbfe1f-82ab-4354-b7d1-8fe4f53fe590",
+  "id": "bbdc1c13-352b-4b6c-bae1-e9d142db9816",
   "jsonrpc": "2.0"
 }
 <<< 200 application/json
 {
   "result": {
     "task": {
-      "id": "38df1257-4200-4799-a36f-9e49db6ba81e",
-      "contextId": "97ceadff-4bbd-46cd-a8c3-e90f43092e4e",
+      "id": "ff73263f-7aa5-4b5a-8fb0-65c56d429ac4",
+      "contextId": "a65b8633-7541-45d2-821e-79ee416ff348",
       "status": {
         "state": "TASK_STATE_INPUT_REQUIRED",
         "message": {
-          "messageId": "f7427453-c6ca-4bf3-a2f2-6ae0824e1a6b",
-          "contextId": "97ceadff-4bbd-46cd-a8c3-e90f43092e4e",
-          "taskId": "38df1257-4200-4799-a36f-9e49db6ba81e",
+          "messageId": "a4bc819b-8d24-4548-8430-9b085da2145a",
+          "contextId": "a65b8633-7541-45d2-821e-79ee416ff348",
+          "taskId": "ff73263f-7aa5-4b5a-8fb0-65c56d429ac4",
           "role": "ROLE_AGENT",
           "parts": [
             {
@@ -79,13 +79,13 @@
             }
           ]
         },
-        "timestamp": "2026-09-24T23:20:13.740143Z"
+        "timestamp": "2026-09-25T00:38:31.996827Z"
       },
       "history": [
         {
-          "messageId": "0b1be4e2-1db6-4370-9375-3bce23db0c80",
-          "contextId": "97ceadff-4bbd-46cd-a8c3-e90f43092e4e",
-          "taskId": "38df1257-4200-4799-a36f-9e49db6ba81e",
+          "messageId": "21eeddd5-3210-4bbf-a976-74f658a61356",
+          "contextId": "a65b8633-7541-45d2-821e-79ee416ff348",
+          "taskId": "ff73263f-7aa5-4b5a-8fb0-65c56d429ac4",
           "role": "ROLE_USER",
           "parts": [
             {
@@ -96,7 +96,7 @@
       ]
     }
   },
-  "id": "fecbfe1f-82ab-4354-b7d1-8fe4f53fe590",
+  "id": "bbdc1c13-352b-4b6c-bae1-e9d142db9816",
   "jsonrpc": "2.0"
 }
 
@@ -107,22 +107,22 @@
 {
   "method": "GetTask",
   "params": {
-    "id": "38df1257-4200-4799-a36f-9e49db6ba81e"
+    "id": "ff73263f-7aa5-4b5a-8fb0-65c56d429ac4"
   },
-  "id": "a963e275-eed7-4498-a28b-f97601f6a0a3",
+  "id": "5f6a1875-6eb7-4631-bf40-e0e22e2a6d07",
   "jsonrpc": "2.0"
 }
 <<< 200 application/json
 {
   "result": {
-    "id": "38df1257-4200-4799-a36f-9e49db6ba81e",
-    "contextId": "97ceadff-4bbd-46cd-a8c3-e90f43092e4e",
+    "id": "ff73263f-7aa5-4b5a-8fb0-65c56d429ac4",
+    "contextId": "a65b8633-7541-45d2-821e-79ee416ff348",
     "status": {
       "state": "TASK_STATE_INPUT_REQUIRED",
       "message": {
-        "messageId": "f7427453-c6ca-4bf3-a2f2-6ae0824e1a6b",
-        "contextId": "97ceadff-4bbd-46cd-a8c3-e90f43092e4e",
-        "taskId": "38df1257-4200-4799-a36f-9e49db6ba81e",
+        "messageId": "a4bc819b-8d24-4548-8430-9b085da2145a",
+        "contextId": "a65b8633-7541-45d2-821e-79ee416ff348",
+        "taskId": "ff73263f-7aa5-4b5a-8fb0-65c56d429ac4",
         "role": "ROLE_AGENT",
         "parts": [
           {
@@ -130,13 +130,13 @@
           }
         ]
       },
-      "timestamp": "2026-09-24T23:20:13.740143Z"
+      "timestamp": "2026-09-25T00:38:31.996827Z"
     },
     "history": [
       {
-        "messageId": "0b1be4e2-1db6-4370-9375-3bce23db0c80",
-        "contextId": "97ceadff-4bbd-46cd-a8c3-e90f43092e4e",
-        "taskId": "38df1257-4200-4799-a36f-9e49db6ba81e",
+        "messageId": "21eeddd5-3210-4bbf-a976-74f658a61356",
+        "contextId": "a65b8633-7541-45d2-821e-79ee416ff348",
+        "taskId": "ff73263f-7aa5-4b5a-8fb0-65c56d429ac4",
         "role": "ROLE_USER",
         "parts": [
           {
@@ -146,7 +146,7 @@
       }
     ]
   },
-  "id": "a963e275-eed7-4498-a28b-f97601f6a0a3",
+  "id": "5f6a1875-6eb7-4631-bf40-e0e22e2a6d07",
   "jsonrpc": "2.0"
 }
 
@@ -198,7 +198,7 @@
   "method": "SendStreamingMessage",
   "params": {
     "message": {
-      "messageId": "5bb83b3d-d9c7-4065-8901-59b3dabf244c",
+      "messageId": "6d8cb7bf-48ea-4603-a4eb-a131fe7e1a41",
       "role": "ROLE_USER",
       "parts": [
         {
@@ -208,22 +208,22 @@
     },
     "configuration": {}
   },
-  "id": "e01f13a9-d70d-493d-9644-4f691f245dbc",
+  "id": "838c4da9-612b-41e8-a419-9f3991319f24",
   "jsonrpc": "2.0"
 }
 <<< 200 text/event-stream; charset=utf-8
 <<< event: {
   "task": {
-    "id": "d57dbb01-e04f-439e-8a30-62bd53cf7727",
-    "contextId": "b8bf3dad-a3e1-4b61-a821-1c39baab1941",
+    "id": "3863a925-b686-4bf0-b982-2593ba7225a3",
+    "contextId": "69cdc3f9-5370-49df-bdeb-2288f7e91afe",
     "status": {
       "state": "TASK_STATE_SUBMITTED"
     },
     "history": [
       {
-        "messageId": "5bb83b3d-d9c7-4065-8901-59b3dabf244c",
-        "contextId": "b8bf3dad-a3e1-4b61-a821-1c39baab1941",
-        "taskId": "d57dbb01-e04f-439e-8a30-62bd53cf7727",
+        "messageId": "6d8cb7bf-48ea-4603-a4eb-a131fe7e1a41",
+        "contextId": "69cdc3f9-5370-49df-bdeb-2288f7e91afe",
+        "taskId": "3863a925-b686-4bf0-b982-2593ba7225a3",
         "role": "ROLE_USER",
         "parts": [
           {
@@ -236,14 +236,14 @@
 }
 <<< event: {
   "statusUpdate": {
-    "taskId": "d57dbb01-e04f-439e-8a30-62bd53cf7727",
-    "contextId": "b8bf3dad-a3e1-4b61-a821-1c39baab1941",
+    "taskId": "3863a925-b686-4bf0-b982-2593ba7225a3",
+    "contextId": "69cdc3f9-5370-49df-bdeb-2288f7e91afe",
     "status": {
       "state": "TASK_STATE_INPUT_REQUIRED",
       "message": {
-        "messageId": "e06f9670-dc2c-4fa7-ba50-341e267635e7",
-        "contextId": "b8bf3dad-a3e1-4b61-a821-1c39baab1941",
-        "taskId": "d57dbb01-e04f-439e-8a30-62bd53cf7727",
+        "messageId": "5d738b94-c066-430f-b78c-288dea798b9f",
+        "contextId": "69cdc3f9-5370-49df-bdeb-2288f7e91afe",
+        "taskId": "3863a925-b686-4bf0-b982-2593ba7225a3",
         "role": "ROLE_AGENT",
         "parts": [
           {
@@ -251,7 +251,7 @@
           }
         ]
       },
-      "timestamp": "2026-09-24T23:20:13.743887Z"
+      "timestamp": "2026-09-25T00:38:32.000301Z"
     }
   }
 }

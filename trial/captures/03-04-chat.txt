@@ -1,6 +1,6 @@
-task 9ec4f531-86fd-46a3-8422-0df59313c571 (context 38af823d-6289-482c-8c1a-0f34ab68a8c8): input_required
+task 42fba9eb-52ce-4336-b9a6-a42a6202c5f0 (context 5b64b1c3-c855-45d3-9bf9-1736a327944e): input_required
   agent asks: Which period should the brief cover? For example: the last month.
 > the last month
-task 9ec4f531-86fd-46a3-8422-0df59313c571 (context 38af823d-6289-482c-8c1a-0f34ab68a8c8): completed
+task 42fba9eb-52ce-4336-b9a6-a42a6202c5f0 (context 5b64b1c3-c855-45d3-9bf9-1736a327944e): completed
   artifact brief:
-Apple rose 8.4% over the last month, from $309.90 on Aug. 25 to $337.02 on Sep. 23. It climbed through early September, dipped briefly, then rallied to a period high of $339.75 on Sep. 22. The latest close was just below that high.
+Apple rose 8.8% over the last month, from $309.90 on Aug. 25 to $337.02 on Sept. 23. The climb wasn’t steady: after an early-September dip to $315.34, the stock rebounded sharply. It ended near its monthly closing high of $339.75, set Sept. 22.

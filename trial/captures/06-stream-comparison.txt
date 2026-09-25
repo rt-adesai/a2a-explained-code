@@ -1,7 +1,7 @@
-task 3f2d6ca3-7ffc-4ef3-a128-533dba70257c: submitted
+task 743c6110-c860-4e5d-b0f0-40cec317281d: submitted
 status: working  
-status: working  fetching AAPL over 1mo: Measure Apple's last-month performance
-status: working  fetching SPY over 1mo: Compare Apple with the broad market over the same month
+status: working  fetching AAPL over 1mo: Measure Apple's one-month price move
+status: working  fetching SPY over 1mo: Compare with broad market over same month
 artifact brief:
-Apple rose 8.4% over the last month, closing at $337.02 on September 23, near its September 22 high of $339.75. The move wasn’t just the market: SPY gained only 0.4% over the same period. Apple had a few dips along the way, but finished well above its August 25 close of $309.90.
+Apple rose 8.8% over the month, from $309.90 on August 25 to $337.02 on September 23. That was well ahead of the SPY’s 0.5% gain, so the move was not just the broad market. Apple climbed notably in early and mid-September and finished a little below its September 22 closing high of $339.75.
 status: completed  

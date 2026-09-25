@@ -1,0 +1,9 @@
+card: Stock Analyst -- Writes a short brief on one stock over one period, from its price history.
+card: Currency Agent -- Helps with exchange rates for currencies
+-> stock_analyst: Summarize Apple's (AAPL) stock performance over the last month, including the start and end prices and price change in USD, with the relevant dates.
+<- stock_analyst (TASK_STATE_COMPLETED): Apple closed at $309.90 on August 25 and $337.02 on September 23, a gain of $27.12 over the period. That’s an increase of about 8.8%. The stock reached a period-high closing price of $339.75 on September 22, then finished slightly lower the next day.
+-> currency_agent: Convert a USD price change of $27.12 to euros using a current/relevant exchange rate. State the EUR amount and the exchange-rate date used.
+<- currency_agent (TASK_STATE_COMPLETED): At the rate of 1 USD = 0.87974 EUR dated September 24, 2026, $27.12 is approximately €23.86.
+
+briefing:
+Apple rose from $309.90 on August 25 to $337.02 on September 23, gaining $27.12, or about 8.8%, over the period. That price increase is approximately €23.86, using the exchange rate dated September 24, 2026 (1 USD = 0.87974 EUR).

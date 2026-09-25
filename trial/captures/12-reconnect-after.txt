@@ -1,0 +1,8 @@
+task f30a8674-138a-43e3-8c43-148b6add6836: submitted
+status: working  
+status: working  fetching AAPL over 1mo: Report Apple’s price performance over the last month
+-- client disconnected for 45s; the server keeps working --
+-- client back; GetTask says completed --
+task f30a8674-138a-43e3-8c43-148b6add6836: completed
+  artifact brief:
+Apple rose 8.8% over the month, from $309.90 on August 25 to $337.02 on September 23. The climb was uneven, with a dip in early September before a strong rebound. It closed just below its monthly closing high of $339.75, set on September 22.

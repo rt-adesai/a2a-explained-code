@@ -47,7 +47,7 @@
   "method": "SendMessage",
   "params": {
     "message": {
-      "messageId": "95ac55a1-2f48-49dc-87cd-70ec223106f5",
+      "messageId": "d9c36247-90f6-4cc7-94a3-e8aeefc88519",
       "role": "ROLE_USER",
       "parts": [
         {
@@ -57,35 +57,35 @@
     },
     "configuration": {}
   },
-  "id": "fbd07928-7442-48c2-ae30-ff94fc6e0c64",
+  "id": "dec87af9-d451-4cdb-b132-79217fc57154",
   "jsonrpc": "2.0"
 }
 <<< 200 application/json
 {
   "result": {
     "task": {
-      "id": "4452fcea-2435-4ec8-8a7e-a2fd35e8eb40",
-      "contextId": "8898e24a-14dc-4f70-ba00-bf929b5952e5",
+      "id": "85b73148-9e58-417a-b4ea-e6e7ac30fb09",
+      "contextId": "b54a3d11-7f2c-436c-8880-31e49193e0b2",
       "status": {
         "state": "TASK_STATE_COMPLETED",
-        "timestamp": "2026-09-24T23:19:56.305315Z"
+        "timestamp": "2026-09-25T00:38:43.796046Z"
       },
       "artifacts": [
         {
-          "artifactId": "b00c663d-d8c7-4eb4-a72c-5e06fae24c32",
+          "artifactId": "39d9293c-63a9-4cda-b7aa-02d187e22bb6",
           "name": "brief",
           "parts": [
             {
-              "text": "Apple rose 8.4% over the past month, from $309.90 on Aug. 25 to $337.02 on Sep. 23. It reached a period high of $339.75 on Sep. 22, then edged lower. After dipping in early September, the stock climbed steadily through mid-month."
+              "text": "Apple rose 8.8% over the month, from $309.90 on Aug. 25 to $337.02 on Sept. 23. It climbed overall, with a brief dip in early September before gaining ground. The stock reached a monthly closing high of $339.75 on Sept. 22, then edged lower the next day."
             }
           ]
         }
       ],
       "history": [
         {
-          "messageId": "95ac55a1-2f48-49dc-87cd-70ec223106f5",
-          "contextId": "8898e24a-14dc-4f70-ba00-bf929b5952e5",
-          "taskId": "4452fcea-2435-4ec8-8a7e-a2fd35e8eb40",
+          "messageId": "d9c36247-90f6-4cc7-94a3-e8aeefc88519",
+          "contextId": "b54a3d11-7f2c-436c-8880-31e49193e0b2",
+          "taskId": "85b73148-9e58-417a-b4ea-e6e7ac30fb09",
           "role": "ROLE_USER",
           "parts": [
             {
@@ -94,20 +94,20 @@
           ]
         },
         {
-          "messageId": "388584f8-5e5f-4e15-b8db-38545e1007ee",
-          "contextId": "8898e24a-14dc-4f70-ba00-bf929b5952e5",
-          "taskId": "4452fcea-2435-4ec8-8a7e-a2fd35e8eb40",
+          "messageId": "e1787586-17ca-429f-ab85-2dc1389b991b",
+          "contextId": "b54a3d11-7f2c-436c-8880-31e49193e0b2",
+          "taskId": "85b73148-9e58-417a-b4ea-e6e7ac30fb09",
           "role": "ROLE_AGENT",
           "parts": [
             {
-              "text": "fetching AAPL over 1mo: Describe Apple's price performance over the last month"
+              "text": "fetching AAPL over 1mo: Review Apple's share-price performance over the last month"
             }
           ]
         }
       ]
     }
   },
-  "id": "fbd07928-7442-48c2-ae30-ff94fc6e0c64",
+  "id": "dec87af9-d451-4cdb-b132-79217fc57154",
   "jsonrpc": "2.0"
 }
 
@@ -118,36 +118,36 @@
 {
   "method": "GetTask",
   "params": {
-    "id": "4452fcea-2435-4ec8-8a7e-a2fd35e8eb40"
+    "id": "85b73148-9e58-417a-b4ea-e6e7ac30fb09"
   },
-  "id": "f4a17ea1-07a3-4901-abb1-ef251c09e97a",
+  "id": "91d12650-403f-4dd7-837c-cdd66b0f2e88",
   "jsonrpc": "2.0"
 }
 <<< 200 application/json
 {
   "result": {
-    "id": "4452fcea-2435-4ec8-8a7e-a2fd35e8eb40",
-    "contextId": "8898e24a-14dc-4f70-ba00-bf929b5952e5",
+    "id": "85b73148-9e58-417a-b4ea-e6e7ac30fb09",
+    "contextId": "b54a3d11-7f2c-436c-8880-31e49193e0b2",
     "status": {
       "state": "TASK_STATE_COMPLETED",
-      "timestamp": "2026-09-24T23:19:56.305315Z"
+      "timestamp": "2026-09-25T00:38:43.796046Z"
     },
     "artifacts": [
       {
-        "artifactId": "b00c663d-d8c7-4eb4-a72c-5e06fae24c32",
+        "artifactId": "39d9293c-63a9-4cda-b7aa-02d187e22bb6",
         "name": "brief",
         "parts": [
           {
-            "text": "Apple rose 8.4% over the past month, from $309.90 on Aug. 25 to $337.02 on Sep. 23. It reached a period high of $339.75 on Sep. 22, then edged lower. After dipping in early September, the stock climbed steadily through mid-month."
+            "text": "Apple rose 8.8% over the month, from $309.90 on Aug. 25 to $337.02 on Sept. 23. It climbed overall, with a brief dip in early September before gaining ground. The stock reached a monthly closing high of $339.75 on Sept. 22, then edged lower the next day."
           }
         ]
       }
     ],
     "history": [
       {
-        "messageId": "95ac55a1-2f48-49dc-87cd-70ec223106f5",
-        "contextId": "8898e24a-14dc-4f70-ba00-bf929b5952e5",
-        "taskId": "4452fcea-2435-4ec8-8a7e-a2fd35e8eb40",
+        "messageId": "d9c36247-90f6-4cc7-94a3-e8aeefc88519",
+        "contextId": "b54a3d11-7f2c-436c-8880-31e49193e0b2",
+        "taskId": "85b73148-9e58-417a-b4ea-e6e7ac30fb09",
         "role": "ROLE_USER",
         "parts": [
           {
@@ -156,19 +156,19 @@
         ]
       },
       {
-        "messageId": "388584f8-5e5f-4e15-b8db-38545e1007ee",
-        "contextId": "8898e24a-14dc-4f70-ba00-bf929b5952e5",
-        "taskId": "4452fcea-2435-4ec8-8a7e-a2fd35e8eb40",
+        "messageId": "e1787586-17ca-429f-ab85-2dc1389b991b",
+        "contextId": "b54a3d11-7f2c-436c-8880-31e49193e0b2",
+        "taskId": "85b73148-9e58-417a-b4ea-e6e7ac30fb09",
         "role": "ROLE_AGENT",
         "parts": [
           {
-            "text": "fetching AAPL over 1mo: Describe Apple's price performance over the last month"
+            "text": "fetching AAPL over 1mo: Review Apple's share-price performance over the last month"
           }
         ]
       }
     ]
   },
-  "id": "f4a17ea1-07a3-4901-abb1-ef251c09e97a",
+  "id": "91d12650-403f-4dd7-837c-cdd66b0f2e88",
   "jsonrpc": "2.0"
 }
 
@@ -220,7 +220,7 @@
   "method": "SendStreamingMessage",
   "params": {
     "message": {
-      "messageId": "58d73b19-5892-4667-b300-281cb3688b92",
+      "messageId": "03ad79e7-926f-4202-a090-285c99edbbfd",
       "role": "ROLE_USER",
       "parts": [
         {
@@ -230,22 +230,22 @@
     },
     "configuration": {}
   },
-  "id": "49d3618b-b970-42ec-8265-a3eab028493f",
+  "id": "9a625e40-4b57-4d5d-b849-6a2f6ee2ac81",
   "jsonrpc": "2.0"
 }
 <<< 200 text/event-stream; charset=utf-8
 <<< event: {
   "task": {
-    "id": "ce075917-ce5c-4d2b-ba5d-ceeaeee001d4",
-    "contextId": "81533332-c3ee-4a53-a67a-35d0fff183cd",
+    "id": "31431967-fe4e-4d0a-8d78-7b8ba007127a",
+    "contextId": "a7a90ba9-72d8-4670-b3f8-590f61f4489d",
     "status": {
       "state": "TASK_STATE_SUBMITTED"
     },
     "history": [
       {
-        "messageId": "58d73b19-5892-4667-b300-281cb3688b92",
-        "contextId": "81533332-c3ee-4a53-a67a-35d0fff183cd",
-        "taskId": "ce075917-ce5c-4d2b-ba5d-ceeaeee001d4",
+        "messageId": "03ad79e7-926f-4202-a090-285c99edbbfd",
+        "contextId": "a7a90ba9-72d8-4670-b3f8-590f61f4489d",
+        "taskId": "31431967-fe4e-4d0a-8d78-7b8ba007127a",
         "role": "ROLE_USER",
         "parts": [
           {
@@ -258,45 +258,45 @@
 }
 <<< event: {
   "statusUpdate": {
-    "taskId": "ce075917-ce5c-4d2b-ba5d-ceeaeee001d4",
-    "contextId": "81533332-c3ee-4a53-a67a-35d0fff183cd",
+    "taskId": "31431967-fe4e-4d0a-8d78-7b8ba007127a",
+    "contextId": "a7a90ba9-72d8-4670-b3f8-590f61f4489d",
     "status": {
       "state": "TASK_STATE_WORKING",
-      "timestamp": "2026-09-24T23:19:56.322175Z"
+      "timestamp": "2026-09-25T00:38:43.811892Z"
     }
   }
 }
 <<< event: {
   "statusUpdate": {
-    "taskId": "ce075917-ce5c-4d2b-ba5d-ceeaeee001d4",
-    "contextId": "81533332-c3ee-4a53-a67a-35d0fff183cd",
+    "taskId": "31431967-fe4e-4d0a-8d78-7b8ba007127a",
+    "contextId": "a7a90ba9-72d8-4670-b3f8-590f61f4489d",
     "status": {
       "state": "TASK_STATE_WORKING",
       "message": {
-        "messageId": "65b99a14-3d4d-4abd-b80b-a56ab4def084",
-        "contextId": "81533332-c3ee-4a53-a67a-35d0fff183cd",
-        "taskId": "ce075917-ce5c-4d2b-ba5d-ceeaeee001d4",
+        "messageId": "ec2eafce-4f35-4ff2-8ff3-156037a83145",
+        "contextId": "a7a90ba9-72d8-4670-b3f8-590f61f4489d",
+        "taskId": "31431967-fe4e-4d0a-8d78-7b8ba007127a",
         "role": "ROLE_AGENT",
         "parts": [
           {
-            "text": "fetching AAPL over 1mo: Summarize Apple\u2019s price performance over the last month"
+            "text": "fetching AAPL over 1mo: Summarize Apple\u2019s price movement over the last month"
           }
         ]
       },
-      "timestamp": "2026-09-24T23:19:58.885924Z"
+      "timestamp": "2026-09-25T00:38:49.221162Z"
     }
   }
 }
 <<< event: {
   "artifactUpdate": {
-    "taskId": "ce075917-ce5c-4d2b-ba5d-ceeaeee001d4",
-    "contextId": "81533332-c3ee-4a53-a67a-35d0fff183cd",
+    "taskId": "31431967-fe4e-4d0a-8d78-7b8ba007127a",
+    "contextId": "a7a90ba9-72d8-4670-b3f8-590f61f4489d",
     "artifact": {
-      "artifactId": "d216833e-2e2e-42e9-8a2f-c478c0570478",
+      "artifactId": "67fe45f8-6144-4749-aae6-c7677481a001",
       "name": "brief",
       "parts": [
         {
-          "text": "Apple rose 8.4% over the last month, from $309.90 on Aug. 25 to $337.02 on Sept. 23. It climbed through early September, briefly dipped, then advanced to a period high of $339.75 on Sept. 22. The latest close was slightly below that high."
+          "text": "Apple rose 8.8% over the month, from $309.90 on Aug. 25 to $337.02 on Sept. 23. It climbed into early September, dipped to $315.34 on Sept. 9, then rebounded. The stock closed at a period high of $339.75 on Sept. 22 before edging lower the next day."
         }
       ]
     }
@@ -304,11 +304,11 @@
 }
 <<< event: {
   "statusUpdate": {
-    "taskId": "ce075917-ce5c-4d2b-ba5d-ceeaeee001d4",
-    "contextId": "81533332-c3ee-4a53-a67a-35d0fff183cd",
+    "taskId": "31431967-fe4e-4d0a-8d78-7b8ba007127a",
+    "contextId": "a7a90ba9-72d8-4670-b3f8-590f61f4489d",
     "status": {
       "state": "TASK_STATE_COMPLETED",
-      "timestamp": "2026-09-24T23:20:03.616737Z"
+      "timestamp": "2026-09-25T00:38:55.594901Z"
     }
   }
 }

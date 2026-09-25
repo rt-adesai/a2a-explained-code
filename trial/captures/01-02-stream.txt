@@ -1,6 +1,6 @@
-task bb0cd3e2-5ba9-4cad-abe2-cd9b5e129132: submitted
+task b71cf35e-b65c-42e4-9b55-b022617e9f4d: submitted
 status: working  
 status: working  fetching AAPL over 1mo: Describe Apple's performance over the last month
 artifact brief:
-Apple rose 8.4% over the last month, from a close of $309.90 on Aug. 25 to $337.02 on Sept. 23. It climbed through early September, briefly pulled back, then rallied to a period high of $339.75 on Sept. 22. It ended just below that high.
+Apple rose 8.8% over the past month, from $309.90 on August 25 to $337.02 on September 23. It climbed overall, though it dipped in early September before rebounding. The stock reached a one-month closing high of $339.75 on September 22, then edged lower.
 status: completed  

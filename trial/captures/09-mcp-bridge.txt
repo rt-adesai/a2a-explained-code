@@ -1,0 +1,54 @@
+$ ANALYST=analyst_mcp python server.py     # terminal 1: the analyst, its lookup behind mcp_server.py over stdio
+
+$ curl -s http://127.0.0.1:9999/.well-known/agent-card.json | python -m json.tool
+{
+    "name": "Stock Analyst",
+    "description": "Writes a short brief on one stock over one period, from its price history.",
+    "supportedInterfaces": [
+        {
+            "url": "http://127.0.0.1:9999",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "1.0"
+        }
+    ],
+    "version": "0.1.0",
+    "capabilities": {
+        "streaming": true,
+        "pushNotifications": true
+    },
+    "defaultInputModes": [
+        "text/plain"
+    ],
+    "defaultOutputModes": [
+        "text/plain"
+    ],
+    "skills": [
+        {
+            "id": "stock-brief",
+            "name": "Stock brief",
+            "description": "Given a ticker and a period, fetch the price history and write a few sentences on what happened.",
+            "tags": [
+                "stocks"
+            ],
+            "examples": [
+                "How did Apple do over the last month?"
+            ]
+        }
+    ]
+}
+
+$ python ask.py http://127.0.0.1:9999 "How did Apple do over the last month?"
+agent: Stock Analyst -- Writes a short brief on one stock over one period, from its price history.
+  skill stock-brief: Given a ticker and a period, fetch the price history and write a few sentences on what happened.
+task 7bfc492c-e321-4bdf-a4cd-86348431dcb7: completed
+  artifact brief:
+Apple rose 8.8% over the month, from $309.90 on August 25 to $337.02 on September 23. It climbed into early September, dipped to $315.34 on September 9, then rallied. It reached a monthly closing high of $339.75 on September 22 and edged lower the next day.
+
+$ python stream.py "How did Apple do over the last month, and was that just the market?"
+task 50d7b43c-fe18-4f42-b36d-2a9a6ddf528c: submitted
+status: working  
+status: working  fetching AAPL over 1mo: Apple's last-month performance
+status: working  fetching SPY over 1mo: Compare Apple with the broad market
+artifact brief:
+Apple rose 8.8% over the month, from $309.90 on August 25 to $337.02 on September 23. It climbed overall, with a brief dip in early September, and finished just below its recent closing high of $339.75. The S&P 500 ETF SPY gained 0.5% over the same period, so Apple’s rise substantially outpaced the broader market.
+status: completed  
