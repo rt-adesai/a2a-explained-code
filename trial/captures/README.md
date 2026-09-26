@@ -59,7 +59,8 @@ videos replay these; nothing is recorded live. Move each capture to
 
 ## Videos 04 and 10: the currency agent
 
-| File | What it shows |
-|---|---|
-| `currency-01-convert.txt` | `ask.py` on "How much is 100 US dollars in euros?": the sample creates a Task and completes it with a `conversion_result` artifact. |
-| `currency-02-ask-back.txt` | `chat.py` on "How much is 100 dollars?" then "in euros": `input_required` asking for the currency, resumed on the same task and context, completed. |
+Video 04's captures were re-run from `04-first-agent/` on 2026-09-25 and live in
+`../a2a-explained/videos/04-talk-to-your-first-agent/assets/captures/` with their
+own provenance README; the 2026-09-24 trial takes (`currency-01-convert.txt`,
+`currency-02-ask-back.txt`, the second via `chat.py` with the reply on the same
+task) are in git history at `81394f1`. Video 10's run is `10-briefing.txt` above.

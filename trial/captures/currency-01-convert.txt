@@ -1,5 +1,0 @@
-agent: Currency Agent -- Helps with exchange rates for currencies
-  skill convert_currency: Helps with exchange values between various currencies
-task 1eaee111-7799-43fe-9657-61735f3b0e18: completed
-  artifact conversion_result:
-100 US dollars is approximately **€87.97** at the latest available exchange rate. The amount you receive may vary depending on fees and the rate used by your provider.

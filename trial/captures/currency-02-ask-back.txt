@@ -1,6 +1,0 @@
-task c8d6f11a-007a-4db2-91a9-6b2b09875951 (context 88abb9db-dc3b-447e-8ea2-6fe75cdcbcb1): input_required
-  agent asks: What currency would you like to convert 100 dollars into?
-> in euros
-task c8d6f11a-007a-4db2-91a9-6b2b09875951 (context 88abb9db-dc3b-447e-8ea2-6fe75cdcbcb1): completed
-  artifact conversion_result:
-100 US dollars is approximately €87.97 at the quoted exchange rate. The amount you receive may differ depending on fees and the rate your bank or exchange service uses.
