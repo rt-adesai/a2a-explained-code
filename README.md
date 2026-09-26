@@ -14,18 +14,17 @@ run locally.
 
 ## Status
 
-The series is being planned, and this repo holds its **implementation trial**:
-the analyst built and proven before any video is storyboarded, with the real
-exchanges captured for the videos to replay.
+The implementation trial is done and the first video folder exists. Video folders
+are carved out of `trial/` as each video is authored.
 
 | Folder | What it holds |
 |---|---|
+| [`04-first-agent/`](./04-first-agent/) | Video 04: `ask.py`, our 36-line client, talking to the A2A project's currency-conversion sample, run locally as a black box |
 | [`trial/`](./trial/) | The analyst (`analyst.py`, `server.py`), one client script per video moment (`ask.py`, `poll.py`, `stream.py`, `chat.py`, `reconnect.py`, `webhook.py`, `wire.py`), the currency agent ported to the pinned SDK, and `captures/` with every run and its provenance |
 
-Video folders (`05-analyst/`, `06-analyst/`, …) will be carved out of `trial/` as
-each video is authored, following the convention MCP Explained settled on: one
-runnable folder per video state, named for the video, two videos sharing a folder
-only where the code between them is identical.
+The convention is MCP Explained's: one runnable folder per video state, named for
+the video, two videos sharing a folder only where the code between them is
+identical. `trial/` stays as it is until each remaining video takes its folder.
 
 ## Setup pattern (all folders)
 

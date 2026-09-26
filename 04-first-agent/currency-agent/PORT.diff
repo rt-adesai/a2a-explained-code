@@ -1,0 +1,152 @@
+--- upstream/app/__main__.py	2026-09-24 15:42:44
++++ app/__main__.py	2026-09-24 15:55:13
+@@ -6,8 +6,9 @@
+ import httpx
+ import uvicorn
+ 
+-from a2a.server.apps import A2AStarletteApplication
++from starlette.applications import Starlette
+ from a2a.server.request_handlers import DefaultRequestHandler
++from a2a.server.routes import create_agent_card_routes, create_jsonrpc_routes
+ from a2a.server.tasks import (
+     BasePushNotificationSender,
+     InMemoryPushNotificationConfigStore,
+@@ -16,6 +17,7 @@
+ from a2a.types import (
+     AgentCapabilities,
+     AgentCard,
++    AgentInterface,
+     AgentSkill,
+ )
+ from dotenv import load_dotenv
+@@ -66,7 +68,7 @@
+         agent_card = AgentCard(
+             name='Currency Agent',
+             description='Helps with exchange rates for currencies',
+-            url=f'http://{host}:{port}/',
++            supported_interfaces=[AgentInterface(url=f'http://{host}:{port}/', protocol_binding='JSONRPC', protocol_version='1.0')],
+             version='1.0.0',
+             default_input_modes=CurrencyAgent.SUPPORTED_CONTENT_TYPES,
+             default_output_modes=CurrencyAgent.SUPPORTED_CONTENT_TYPES,
+@@ -83,14 +85,14 @@
+         request_handler = DefaultRequestHandler(
+             agent_executor=CurrencyAgentExecutor(),
+             task_store=InMemoryTaskStore(),
++            agent_card=agent_card,
+             push_config_store=push_config_store,
+             push_sender= push_sender
+         )
+-        server = A2AStarletteApplication(
+-            agent_card=agent_card, http_handler=request_handler
+-        )
++        app = Starlette(routes=create_agent_card_routes(agent_card)
++                        + create_jsonrpc_routes(request_handler, '/'))
+ 
+-        uvicorn.run(server.build(), host=host, port=port)
++        uvicorn.run(app, host=host, port=port)
+         # --8<-- [end:DefaultRequestHandler]
+ 
+     except MissingAPIKeyError as e:
+--- upstream/app/agent_executor.py	2026-09-24 15:42:44
++++ app/agent_executor.py	2026-09-24 15:55:26
+@@ -3,19 +3,13 @@
+ from a2a.server.agent_execution import AgentExecutor, RequestContext
+ from a2a.server.events import EventQueue
+ from a2a.server.tasks import TaskUpdater
+-from a2a.types import (
++from a2a.helpers import new_task_from_user_message, new_text_message
++from a2a.types import Part, TaskState
++from a2a.utils.errors import (
+     InternalError,
+     InvalidParamsError,
+-    Part,
+-    TaskState,
+-    TextPart,
+     UnsupportedOperationError,
+ )
+-from a2a.utils import (
+-    new_agent_text_message,
+-    new_task,
+-)
+-from a2a.utils.errors import ServerError
+ 
+ from app.agent import CurrencyAgent
+ 
+@@ -37,12 +31,12 @@
+     ) -> None:
+         error = self._validate_request(context)
+         if error:
+-            raise ServerError(error=InvalidParamsError())
++            raise InvalidParamsError()
+ 
+         query = context.get_user_input()
+         task = context.current_task
+         if not task:
+-            task = new_task(context.message)  # type: ignore
++            task = new_task_from_user_message(context.message)  # type: ignore
+             await event_queue.enqueue_event(task)
+         updater = TaskUpdater(event_queue, task.id, task.context_id)
+         try:
+@@ -52,27 +46,26 @@
+ 
+                 if not is_task_complete and not require_user_input:
+                     await updater.update_status(
+-                        TaskState.working,
+-                        new_agent_text_message(
++                        TaskState.TASK_STATE_WORKING,
++                        new_text_message(
+                             item['content'],
+-                            task.context_id,
+-                            task.id,
++                            context_id=task.context_id,
++                            task_id=task.id,
+                         ),
+                     )
+                 elif require_user_input:
+                     await updater.update_status(
+-                        TaskState.input_required,
+-                        new_agent_text_message(
++                        TaskState.TASK_STATE_INPUT_REQUIRED,
++                        new_text_message(
+                             item['content'],
+-                            task.context_id,
+-                            task.id,
++                            context_id=task.context_id,
++                            task_id=task.id,
+                         ),
+-                        final=True,
+                     )
+                     break
+                 else:
+                     await updater.add_artifact(
+-                        [Part(root=TextPart(text=item['content']))],
++                        [Part(text=item['content'])],
+                         name='conversion_result',
+                     )
+                     await updater.complete()
+@@ -80,7 +73,7 @@
+ 
+         except Exception as e:
+             logger.error(f'An error occurred while streaming the response: {e}')
+-            raise ServerError(error=InternalError()) from e
++            raise InternalError() from e
+ 
+     def _validate_request(self, context: RequestContext) -> bool:
+         return False
+@@ -88,4 +81,4 @@
+     async def cancel(
+         self, context: RequestContext, event_queue: EventQueue
+     ) -> None:
+-        raise ServerError(error=UnsupportedOperationError())
++        raise UnsupportedOperationError()
+--- upstream/app/agent.py	2026-09-24 15:42:44
++++ app/agent.py	2026-09-24 16:13:45
+@@ -37,7 +37,7 @@
+     """
+     try:
+         response = httpx.get(
+-            f'https://api.frankfurter.app/{currency_date}',
++            f'https://api.frankfurter.dev/v1/{currency_date}',
+             params={'from': currency_from, 'to': currency_to},
+         )
+         response.raise_for_status()

@@ -1,0 +1,5 @@
+# The client for video 04. Install (Python 3.11+):  pip install -r requirements.txt
+# Pinned exactly: this repo promises the environment the video was captured in.
+# The currency agent has its own requirements.txt in currency-agent/.
+
+a2a-sdk==1.1.5
