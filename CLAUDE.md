@@ -7,10 +7,13 @@ The series repo next door owns the plan; this repo owns the code and the capture
 (`analyst.py`, `server.py`), one client script per video moment, the wiretap
 (`tap.py`), the MCP bridge (`mcp_server.py`, `analyst_mcp.py`), the briefing agent
 (`briefing.py`), the currency sample ported to the pinned SDK (`currency-agent/`),
-and `captures/` with every run and its provenance. `04-first-agent/` is the first
-video folder (2026-09-25): `ask.py` and the currency agent, carved out of `trial/`
-unchanged, with video 04's captures re-run from it. The rest of `trial/` is
-reshaped per video as 05 onward are authored. The sections below describe the
+and `captures/` with every run and its provenance. Video folders so far
+(2026-09-25): `04-first-agent/` (`ask.py` and the currency agent, unchanged from
+the trial) and `05-analyst/` (the served analyst at its minimum: the trial's
+`server.py` without the period check, the push wiring, or the trial plumbing).
+Each video's captures are re-run from its folder with the MCP series' capture
+harness and moved next door. The rest of `trial/` is reshaped per video as 06
+onward are authored. The sections below describe the
 job as it was set; `trial/README.md` and `trial/captures/README.md` say what
 exists, and `../a2a-explained/series-plan.md` carries what the trial settled.
 

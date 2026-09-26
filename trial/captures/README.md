@@ -2,8 +2,10 @@
 
 Real runs of the code in `trial/`, saved verbatim from stdout on 2026-09-24 (US
 market open; every lookup ends at the last completed close, 2026-09-23). The
-videos replay these; nothing is recorded live. Move each capture to
-`../a2a-explained/videos/NN-slug/assets/captures/` once that video's folder exists.
+videos replay these; nothing is recorded live. Each video's captures are re-run
+from its own folder and moved to `../a2a-explained/videos/NN-slug/assets/captures/`
+as it is authored: **04 and 05 have moved out** (`04-first-agent/`, `05-analyst/`).
+The takes here are the trial's, kept for 06 onward.
 
 ## Provenance
 

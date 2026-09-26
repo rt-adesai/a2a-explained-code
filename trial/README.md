@@ -3,7 +3,10 @@
 The one running example of *A2A Explained*, built before any video is
 storyboarded, plus the client scripts for the five required runs. Captures of
 the real runs, with provenance, live in `captures/`. This folder is reshaped
-into per-video folders once the series plan settles.
+into per-video folders as each video is authored: **04 and 05 have moved out**
+(`../04-first-agent/`, `../05-analyst/`); what is here stays as the trial left it,
+and `ask.py`, `analyst.py` and the currency agent are the copies those folders
+started from.
 
 | File | What it is |
 |---|---|

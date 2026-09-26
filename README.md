@@ -14,12 +14,13 @@ run locally.
 
 ## Status
 
-The implementation trial is done and the first video folder exists. Video folders
+The implementation trial is done and the first video folders exist. Video folders
 are carved out of `trial/` as each video is authored.
 
 | Folder | What it holds |
 |---|---|
 | [`04-first-agent/`](./04-first-agent/) | Video 04: `ask.py`, our 36-line client, talking to the A2A project's currency-conversion sample, run locally as a black box |
+| [`05-analyst/`](./05-analyst/) | Video 05: the analyst at its minimum, served behind its card (`server.py`, 54 lines, over `analyst.py`), and the same `ask.py` |
 | [`trial/`](./trial/) | The analyst (`analyst.py`, `server.py`), one client script per video moment (`ask.py`, `poll.py`, `stream.py`, `chat.py`, `reconnect.py`, `webhook.py`, `wire.py`), the currency agent ported to the pinned SDK, and `captures/` with every run and its provenance |
 
 The convention is MCP Explained's: one runnable folder per video state, named for
